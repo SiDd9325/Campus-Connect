@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Campus Connect</div>
+        <div class="nav-links">
+            <a href="#" class="active" data-page="home">Home</a>
+            <a href="#" data-page="query">Ask Query</a>
+            <a href="#" data-page="subjects">Subjects</a>
+            <a href="#" data-page="profile" class="auth-btn">Profile</a>
+            <a href="#" data-page="login" class="auth-btn">Login</a>
+            <a href="#" data-page="signup" class="auth-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Feed Section -->
+        <section id="home" class="page active">
+            <h2 class="text-3xl font-bold mb-4 text-blue-700">Home Feed</h2>
+            <div class="feed-container space-y-4">
+                <!-- Feed items will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Query Section -->
+        <section id="query" class="page">
+            <div class="max-w-xl mx-auto bg-white rounded-xl shadow-md p-6 mt-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">📝 Ask a Query</h2>
+                <form id="query-form" class="space-y-4">
+                    <textarea id="query-text" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4" placeholder="Type your question here..." required></textarea>
+                    <select id="query-subject" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        <option value="">Select Subject</option>
+                        <option value="math">🧮 Mathematics</option>
+                        <option value="science">🔬 Science</option>
+                        <option value="frontend">💻 Frontend Development</option>
+                        <option value="fullstack">🌐 Full Stack Development</option>
+                        <option value="toc">🤖 Theory of Computation</option>
+                        <option value="javascript">✨ JavaScript</option>
+                        <option value="optimization">⚡ Optimization Techniques</option>
+                        <option value="english">📖 English</option>
+                    </select>
+                    <input type="file" id="query-file" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-700 transition">🚀 Post Query</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Subjects Section -->
+        <section id="subjects" class="page">
+            <h2>Subjects</h2>
+            <div class="subjects-grid">
+                <a href="#" class="subject-card" data-subject="math">
+                    <h3>Mathematics</h3>
+                    <p>Explore math-related discussions</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">Khan Academy</span>
+                        <span class="resource-link">MIT OCW</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="science">
+                    <h3>Science</h3>
+                    <p>Explore science-related discussions</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">Coursera</span>
+                        <span class="resource-link">edX</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="frontend">
+                    <h3>Frontend Development</h3>
+                    <p>HTML, CSS, JavaScript, React, Vue</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">MDN Web Docs</span>
+                        <span class="resource-link">Frontend Masters</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="fullstack">
+                    <h3>Full Stack Development</h3>
+                    <p>MERN, MEAN, Django, Spring Boot</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">FreeCodeCamp</span>
+                        <span class="resource-link">The Odin Project</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="toc">
+                    <h3>Theory of Computation</h3>
+                    <p>Automata, Complexity, Computability</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">NPTEL</span>
+                        <span class="resource-link">Stanford Online</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="javascript">
+                    <h3>JavaScript</h3>
+                    <p>Advanced JS, ES6+, Node.js</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">JavaScript.info</span>
+                        <span class="resource-link">You Don't Know JS</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="optimization">
+                    <h3>Optimization Techniques</h3>
+                    <p>Performance, Algorithms, System Design</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">LeetCode</span>
+                        <span class="resource-link">System Design Primer</span>
+                    </div>
+                </a>
+                <a href="#" class="subject-card" data-subject="english">
+                    <h3>English</h3>
+                    <p>Explore English-related discussions</p>
+                    <div class="resources">
+                        <span class="subject-link">GeeksforGeeks</span>
+                        <span class="resource-link">Grammarly</span>
+                        <span class="resource-link">Cambridge Dictionary</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="page">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <img src="" alt="Profile" class="profile-image-large" id="profile-image">
+                        <div class="profile-image-overlay">
+                            <svg class="camera-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H6v-.99c.2-.72 3.3-2.01 6-2.01s5.8 1.29 6 2v1z"/>
+                            </svg>
+                        </div>
+                        <div class="profile-status online"></div>
+                        <div class="default-profile-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                            </svg>
+                        </div>
+                        <button class="edit-profile-btn">Edit Profile</button>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profile-name">User Name</h2>
+                        <p id="profile-email">user@example.com</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-emoji">📝</span>
+                                <span class="stat-value" id="queries-count">0</span>
+                                <span class="stat-label">Queries</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-emoji">💬</span>
+                                <span class="stat-value" id="comments-count">0</span>
+                                <span class="stat-label">Comments</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-emoji">❤️</span>
+                                <span class="stat-value" id="likes-count">0</span>
+                                <span class="stat-label">Likes</span>
+                            </div>
+                        </div>
+                        <button id="logout-btn" class="btn btn-danger mt-3">
+                            <span class="logout-emoji">🚪</span>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="my-queries">My Queries</button>
+                        <button class="tab-btn" data-tab="my-comments">My Comments</button>
+                        <button class="tab-btn" data-tab="liked-posts">Liked Posts</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="my-queries">
+                            <div class="queries-list">
+                                <!-- Queries will be dynamically added here -->
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="my-comments">
+                            <div class="comments-list">
+                                <!-- Comments will be dynamically added here -->
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="liked-posts">
+                            <div class="liked-posts-list">
+                                <!-- Liked posts will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="page">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-card">
+                            <div class="card-header">
+                                <h2 class="text-center mb-0">Welcome Back!</h2>
+                                <p class="text-center text-muted">Please login to your account</p>
+                            </div>
+                            <div class="card-body">
+                                <form id="login-form">
+                                    <div class="form-group mb-3">
+                                        <label for="login-email" class="form-label">Email address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="email" class="form-control" id="login-email" placeholder="Enter your email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="login-password" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="password" class="form-control" id="login-password" placeholder="Enter your password" required>
+                                            <button class="btn btn-outline-secondary" type="button" id="toggle-password">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="remember-me">
+                                            <label class="form-check-label" for="remember-me">Remember me</label>
+                                        </div>
+                                        <a href="#" class="text-decoration-none">Forgot password?</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+                                    <div class="text-center">
+                                        <p class="mb-0">Don't have an account? <a href="#" class="text-decoration-none" data-page="signup">Sign up</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section id="signup" class="page">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="signup-card">
+                            <div class="card-header">
+                                <h2 class="text-center mb-0">Create Account</h2>
+                                <p class="text-center text-muted">Join our community today</p>
+                            </div>
+                            <div class="card-body">
+                                <form id="signup-form">
+                                    <div class="form-group mb-3">
+                                        <label for="signup-name" class="form-label">Full Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="text" class="form-control" id="signup-name" placeholder="Enter your full name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="signup-email" class="form-label">Email address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="signup-password" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="password" class="form-control" id="signup-password" placeholder="Create a password" required>
+                                            <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                                </svg>
+                                            </span>
+                                            <input type="password" class="form-control" id="signup-confirm-password" placeholder="Confirm your password" required>
+                                            <button class="btn btn-outline-secondary" type="button" id="toggle-signup-confirm-password">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input type="checkbox" class="form-check-input" id="terms" required>
+                                        <label class="form-check-label" for="terms">I agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a></label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+                                    <div class="text-center">
+                                        <p class="mb-0">Already have an account? <a href="#" class="text-decoration-none" data-page="login">Login</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
